@@ -1,24 +1,95 @@
+import os
 import requests
 from bs4 import BeautifulSoup
+from babel.numbers import format_currency
+
+os.system("clear")
 
 
-INDEED_URL="https://www.indeed.com/jobs?q=python&limit=9999"
+
+print("hello,please choose selent a country by number:")
+
+iban_result = requests.get("https://www.iban.com/currency-codes")
+iban_soup = BeautifulSoup(iban_result.text, "html.parser")
+
+tr = iban_soup.find("tr")
+tds = iban_soup.find_all("td")
 
 
-def extrant_indeed_pages():
+date = []
 
-    indeed_result = requests.get("https://www.indeed.com/jobs?q=python&limit=9999")
 
-    indeed_soup = BeautifulSoup(indeed_result.text, "html.parser")
+for tr in iban_soup.find_all("tr"):
+  tds = list(tr.find_all("td"))
+  if tr.find_all("td"):
+        country=tds[0].text
+        currency= tds[1].text
+        code=tds[2].text
+        number=tds[3].text
+        date.append([country,currency,code,number])
 
-    pagination = indeed_soup.find("div", {"class": "pagination"})
 
-    links = pagination.find_all('a')
-    pages=[]
-    for link in links[:-1]:
-        pages.append(int(link.string))      
+for i in range(len(date)):
+    print(f"# {i+1}", date[i][0])
+    i=i+1
 
-    max_page=pages[-1]
+
+def  user_answer():
+
+
+    try:
+        answer= int(input("where areyou from? choose a country by number. \n #:"))
+        if 0< answer<269:
+            print(date[answer-1][0])    
+
+        elif answer<1 or answer>268:
+            print("choose from a number list.")
+            user_answer()
+
+    except:
+        print("this in not a number.")
+        user_answer()
+
+    return answer
+
+def user_answer_2():
+
+
+    try:
+        answer_2 = int(input(" \n Now choose another country,  \n #:"))
+        if 0 < answer_2 < 269:
+            print(date[answer_2-1][0]) 
+        elif answer_2 < 1 or answer_2 > 268:  
+            user_answer_2()  
+
+    except:
+        print("this in not a number.")
+        user_answer_2()
+
+
+    return answer_2()        
+
+
+
+def converter():
+    from_country = user_answer()
+    to_country= user_answer_2()
+
+
+    answer_3 = int(input(f"\n How many {date[from_country-1][1]} do you want to convert to {date[from_country-1][1]}? \n"))
+
+    tw=requests.get(f" https://wise.com/gb/currency-converter/ {date[from_country][2]}-to-{date[to_country][2]}-rate?amount-{answer_3}")
+    tw_soup = BeautifulSoup(tw.text, "html.parser")
+    converted =float(iban_soup.find("span",{"calss":"text-success"}.text))
+    result = float(converted*answer_3)
+
+    print(f"{date[from_country-1][1]}{answer_3} is {date[to_country][1]}{result}")
+
+    return result
+
+converter()
+
+
 
 
 
