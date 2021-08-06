@@ -59,7 +59,7 @@ def url_test(list=[]):
 
 def start_over():
     while True:
-        answer= input("do you wnat to start over? y/n")
+        answer= input("do you want to start over? y/n")
 
 
         if answer =="y":
@@ -71,7 +71,7 @@ def start_over():
             print("ok, bye")
 
         else:
-            print("This is not valid ansxer.")
+            print("This is not valid answer.")
             start_over()
 
 start_over()
