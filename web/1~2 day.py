@@ -34,3 +34,15 @@ print(days)
 
 
 # /\/\/\/\/\/\/\ END DO NOT TOUCH AREA /\/\/\/\/\/\/\ #
+### 샘코드
+def is_on_list(a_list=[], word=""):
+  return word in a_list
+
+def get_x(a_list=[], index=0):
+  return a_list[index]
+
+def add_x(a_list=[], word=""):
+  a_list.append(word)
+
+def remove_x(a_list=[], word=""):
+  a_list.remove(word)
