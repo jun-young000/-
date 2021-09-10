@@ -4,19 +4,24 @@ Create the missing functions, use default arguments.
 Sometimes you have to use 'return' and sometimes you dont.
 Start by creating the functions
 """
-def is_on_list(week,day):
+
+
+def is_on_list(week, day):
     if day in week:
         return True
     else:
         return False
-        
-def get_x(week,day):
+
+
+def get_x(week, day):
     return week[day]
 
-def add_x(week,day):
+
+def add_x(week, day):
     return week.append(day)
 
-def remove_x(week,day):
+
+def remove_x(week, day):
     week.remove(day)
 # \/\/\/\/\/\/\  DO NOT TOUCH AREA  \/\/\/\/\/\/\ #
 

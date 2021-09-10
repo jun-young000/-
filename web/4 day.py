@@ -80,10 +80,10 @@ start_over()
 
 # 니코샘  답
 
-
+#
 # import os
 # import requests
-
+#
 # def restart():
 #   answer = str(input("Do you want to start over? y/n ")).lower()
 #   if answer == "y" or answer =="n":
@@ -95,8 +95,8 @@ start_over()
 #   else:
 #     print("That's not a valid answer")
 #     restart()
-
-
+#
+#
 # def main():
 #   os.system('clear')
 #   print("Welcome to IsItDown.py!\nPlease write a URL or URLs you want to check. (separated by comma)")
@@ -117,8 +117,8 @@ start_over()
 #       except:
 #           print(url, "is down!")
 #   restart()
-
-
+#
+#
 # main()
 
 
