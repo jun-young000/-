@@ -51,3 +51,8 @@ def add_x(a_list=[], word=""):
 
 def remove_x(a_list=[], word=""):
   a_list.remove(word)
+
+# is_on_list : 리스트 안에 해당 요소가 있는지 확인하여 존재하면 True값을 반환해주는 함수
+# get_x : 리스트 안에 해당 인덱스가 가리키는 값을 반환하는 함수
+# add_x : 리스트에 새로운 값을 추가하는 함수
+# remove_x : 리스트 안에 있는 해당 요소를 제거하는 함수
